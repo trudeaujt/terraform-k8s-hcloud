@@ -16,10 +16,11 @@ $ terraform apply
 $ terraform init
 $ terraform apply
 $ KUBECONFIG=secrets/admin.conf kubectl get nodes
-$ KUBECONFIG=secrets/admin.conf kubectl apply -f https://docs.projectcalico.org/archive/v3.15/manifests/calico.yaml
 $ KUBECONFIG=secrets/admin.conf kubectl get pods --namespace=kube-system -o wide
-$ KUBECONFIG=secrets/admin.conf kubectl run nginx --image=nginx
-$ KUBECONFIG=secrets/admin.conf kubectl expose deploy nginx --port=80 --type NodePort
+$ KUBECONFIG=secrets/admin.conf helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+$ KUBECONFIG=secrets/admin.conf helm repo update
+$ KUBECONFIG=secrets/admin.conf helm install -n kube-system tmp-ingress ingress-nginx/ingress-nginx -f demo-ingress.yaml
+$ KUBECONFIG=secrets/admin.conf kubectl apply -f demo-app.yml
 ```
 
 ## Variables

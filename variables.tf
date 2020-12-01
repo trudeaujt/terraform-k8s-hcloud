@@ -1,6 +1,13 @@
 variable "hcloud_token" {
 }
 
+variable "location" {
+  default = "hel1"
+}
+
+variable "cluster_name" {
+}
+
 variable "master_count" {
 }
 
@@ -11,7 +18,7 @@ variable "master_image" {
 
 variable "master_type" {
   description = "For more types have a look at https://www.hetzner.de/cloud"
-  default     = "cx21"
+  default     = "cpx11"
 }
 
 variable "node_count" {
@@ -24,7 +31,7 @@ variable "node_image" {
 
 variable "node_type" {
   description = "For more types have a look at https://www.hetzner.de/cloud"
-  default     = "cx21"
+  default     = "cpx11"
 }
 
 variable "ssh_private_key" {
@@ -42,15 +49,10 @@ variable "docker_version" {
 }
 
 variable "kubernetes_version" {
-  default = "1.18.6"
+  default = "1.19.2"
 }
 
 variable "feature_gates" {
   description = "Add Feature Gates e.g. 'DynamicKubeletConfig=true'"
   default     = ""
 }
-
-variable "calico_enabled" {
-  default = false
-}
-

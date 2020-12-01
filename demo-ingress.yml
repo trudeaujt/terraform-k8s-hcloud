@@ -1,0 +1,9 @@
+controller:
+  kind: Deployment
+  replicaCount: 2
+  service:
+    enabled: true
+    type: LoadBalancer
+    annotations:
+      load-balancer.hetzner.cloud/location: hel1
+      load-balancer.hetzner.cloud/name: "tmp-http-lb"

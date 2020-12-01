@@ -6,3 +6,7 @@ output "master_ips" {
   value = [hcloud_server.master.*.ipv4_address]
 }
 
+output "network_id" {
+  value = [hcloud_network.kubenet.id]
+}
+
