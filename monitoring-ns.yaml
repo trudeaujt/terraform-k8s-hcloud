@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    meta.helm.sh/release-name: namespaces
+    meta.helm.sh/release-namespace: kube-system
+  labels:
+    app: raw
+    app.kubernetes.io/managed-by: Helm
+    chart: raw-0.2.3
+    heritage: Helm
+    release: namespaces
+  name: monitoring

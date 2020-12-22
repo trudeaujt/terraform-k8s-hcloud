@@ -39,6 +39,11 @@ variable "ssh_private_key" {
   default     = "~/.ssh/id_ed25519"
 }
 
+variable "ssh_port" {
+  description = "SSH default port"
+  default     = "22"
+}
+
 variable "ssh_public_key" {
   description = "Public Key to authorized the access for the machines"
   default     = "~/.ssh/id_ed25519.pub"
