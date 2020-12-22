@@ -19,7 +19,7 @@ $ KUBECONFIG=secrets/admin.conf kubectl get nodes
 $ KUBECONFIG=secrets/admin.conf kubectl get pods --namespace=kube-system -o wide
 $ KUBECONFIG=secrets/admin.conf helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 $ KUBECONFIG=secrets/admin.conf helm repo update
-$ KUBECONFIG=secrets/admin.conf helm install -n kube-system tmp-ingress ingress-nginx/ingress-nginx -f demo-ingress.yaml
+$ KUBECONFIG=secrets/admin.conf helm install -n kube-system tmp-ingress ingress-nginx/ingress-nginx -f demo-ingress.yml
 $ KUBECONFIG=secrets/admin.conf kubectl apply -f demo-app.yml
 ```
 

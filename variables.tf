@@ -18,7 +18,7 @@ variable "master_image" {
 
 variable "master_type" {
   description = "For more types have a look at https://www.hetzner.de/cloud"
-  default     = "cpx11"
+  default     = "cpx21"
 }
 
 variable "node_count" {
@@ -31,7 +31,7 @@ variable "node_image" {
 
 variable "node_type" {
   description = "For more types have a look at https://www.hetzner.de/cloud"
-  default     = "cpx11"
+  default     = "cpx21"
 }
 
 variable "ssh_private_key" {
@@ -41,7 +41,7 @@ variable "ssh_private_key" {
 
 variable "ssh_port" {
   description = "SSH default port"
-  default     = "22"
+  default     = "666"
 }
 
 variable "ssh_public_key" {
@@ -50,11 +50,11 @@ variable "ssh_public_key" {
 }
 
 variable "docker_version" {
-  default = "19.03"
+  default = "20.10"
 }
 
 variable "kubernetes_version" {
-  default = "1.19.2"
+  default = "1.20.0"
 }
 
 variable "feature_gates" {

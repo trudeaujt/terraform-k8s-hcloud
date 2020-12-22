@@ -1,8 +1,6 @@
 #!/usr/bin/bash
 set -eu
 
-echo "Load balancer IP: $LB_IP"
-
 echo "
 apiVersion: kubeadm.k8s.io/v1beta2
 kind: ClusterConfiguration
