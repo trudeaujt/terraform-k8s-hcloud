@@ -2,13 +2,14 @@ variable "hcloud_token" {
 }
 
 variable "location" {
-  default = "hel1"
+  default = "nbg1"
 }
 
 variable "cluster_name" {
 }
 
 variable "master_count" {
+  default = 1
 }
 
 variable "master_image" {
@@ -18,10 +19,11 @@ variable "master_image" {
 
 variable "master_type" {
   description = "For more types have a look at https://www.hetzner.de/cloud"
-  default     = "cpx21"
+  default     = "cx11"
 }
 
 variable "node_count" {
+  default = 2
 }
 
 variable "node_image" {
@@ -31,7 +33,7 @@ variable "node_image" {
 
 variable "node_type" {
   description = "For more types have a look at https://www.hetzner.de/cloud"
-  default     = "cpx21"
+  default     = "cx21"
 }
 
 variable "ssh_private_key" {
@@ -41,7 +43,7 @@ variable "ssh_private_key" {
 
 variable "ssh_port" {
   description = "SSH default port"
-  default     = "666"
+  default     = "3516"
 }
 
 variable "ssh_public_key" {
@@ -50,11 +52,11 @@ variable "ssh_public_key" {
 }
 
 variable "docker_version" {
-  default = "20.10"
+  default = "20.10.17"
 }
 
 variable "kubernetes_version" {
-  default = "1.20.0"
+  default = "1.24.1"
 }
 
 variable "feature_gates" {

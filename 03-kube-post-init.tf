@@ -12,7 +12,7 @@ resource "null_resource" "kube-cni" {
   }
 
   provisioner "local-exec" {
-    command = "KUBECONFIG=secrets/admin.conf helm install -n kube-system hcloud-csi-driver mlohr/hcloud-csi-driver --set csiDriver.secret.create=true --set csiDriver.secret.hcloudApiToken=${var.hcloud_token}"
+    command = "KUBECONFIG=secrets/admin.conf helm install -n kube-system hcloud-csi-driver mlohr/hcloud-csi-driver --set csiDriver.secret.create=true --set secret.hcloudApiToken=${var.hcloud_token}"
   }
 
   provisioner "local-exec" {

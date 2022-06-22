@@ -14,26 +14,37 @@ waitforapt() {
 if (($MASTER_INDEX == 0)); then
   echo "Skip"
 else
-  echo "
-Package: docker-ce
-Pin: version ${DOCKER_VERSION}.*
-Pin-Priority: 1000
-" >/etc/apt/preferences.d/docker-ce
-  waitforapt
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-  add-apt-repository \
-    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-  apt-get -qq update && apt-get -qq install -y docker-ce
+#  echo "
+#Package: docker-ce
+#Pin: version ${DOCKER_VERSION}.*
+#Pin-Priority: 1000
+#" >/etc/apt/preferences.d/docker-ce
+#  waitforapt
+#  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+#  add-apt-repository \
+#    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+#   $(lsb_release -cs) \
+#   stable"
+#  apt-get -qq update && apt-get -qq install -y docker-ce
+#
+#  cat >/etc/docker/daemon.json <<EOF
+#{
+#  "storage-driver":"overlay2" 
+#}
+#EOF
+#
+#  systemctl restart docker.service
+  
+  VERSION=1.24
+  OS=xUbuntu_20.04
+  echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/ /" > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+  echo "deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/$VERSION/$OS/ /" > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable:cri-o:$VERSION.list
 
-  cat >/etc/docker/daemon.json <<EOF
-{
-  "storage-driver":"overlay2" 
-}
-EOF
+  curl -L https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable:cri-o:$VERSION/$OS/Release.key | apt-key add -
+  curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/Release.key | apt-key add -
 
-  systemctl restart docker.service
+  apt-get update
+  apt-get install cri-o cri-o-runc
 
   curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
   cat <<EOF >/etc/apt/sources.list.d/kubernetes.list

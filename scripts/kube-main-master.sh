@@ -2,17 +2,14 @@
 set -eu
 
 echo "
-apiVersion: kubeadm.k8s.io/v1beta2
+apiVersion: kubeadm.k8s.io/v1beta3
 kind: ClusterConfiguration
 networking:
   podSubnet: 10.244.0.0/16
 controlPlaneEndpoint: "$LB_IP:6443"
-controllerManagerExtraArgs:
-  address: 0.0.0.0
-schedulerExtraArgs:
-  address: 0.0.0.0
 controllerManager:
   extraArgs:
+    address: 0.0.0.0
     bind-address: 0.0.0.0
 scheduler:
   extraArgs:
