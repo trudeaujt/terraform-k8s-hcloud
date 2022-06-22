@@ -5,7 +5,7 @@ This repository will help to setup an opionated Kubernetes Cluster with [kubeadm
 ## Usage
 
 ```
-$ git clone https://github.com/solidnerd/terraform-k8s-hcloud.git
+$ git clone https://github.com/trudeaujt/terraform-k8s-hcloud.git
 $ terraform init
 $ terraform apply
 ```
@@ -74,7 +74,7 @@ $ terraform apply \
 
 ### Bug Reports & Feature Requests
 
-Please use the [issue tracker](https://github.com/solidnerd/terraform-k8s-hcloud/issues) to report any bugs or file feature requests.
+Please use the [issue tracker](https://github.com/trudeau/terraform-k8s-hcloud/issues) to report any bugs or file feature requests.
 
 
 **Tested with**
